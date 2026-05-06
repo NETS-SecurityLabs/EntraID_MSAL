@@ -1,0 +1,62 @@
+﻿using EntraID.ASP.NETCore.Board.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using EntraID.ASP.NETCore.Board.ViewModels;
+
+namespace EntraID.ASP.NETCore.Board.Controllers
+{
+	public class HomeController : BoardBaseController
+	{
+		[HttpGet]
+		public IActionResult Login(string returnUrl)
+		{
+			if (signInManager.IsAuthenticated)
+			{
+				// 이미 인증되어 있기 때문에, 게시판목록 페이지로 이동한다.
+				return RedirectToAction("Index", "Board");
+			}
+
+			LoginViewModel model = new LoginViewModel(signInManager.LoginSession);
+			model.InvalidCredential = false;
+			if (string.IsNullOrWhiteSpace(returnUrl))
+			{
+				model.ReturnUrl = Url.Action("Index", "Board");
+			}
+			else
+			{
+				model.ReturnUrl = returnUrl;
+			}
+
+			return View(model);
+		}
+
+		[HttpPost]
+		public ActionResult Login(string username, string password, string returnUrl)
+		{
+			if (!signInManager.Login(username, password, Response))
+			{
+				LoginViewModel model = new LoginViewModel(signInManager.LoginSession);
+				model.InvalidCredential = true;
+				model.ReturnUrl = returnUrl;
+				return View(model);
+			}
+			else
+			{
+				return Redirect(returnUrl);
+			}
+		}
+
+		public ActionResult Logout()
+		{
+			signInManager.Logout(Response);
+			return RedirectToAction("Index", "Board");
+		}
+	}
+}

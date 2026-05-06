@@ -1,0 +1,43 @@
+﻿@model MsalErrorViewModel
+<!-- BEGIN #content -->
+<div id="content" class="app-content">
+	<!-- BEGIN breadcrumb -->
+	<ol class="breadcrumb float-xl-end">
+		<li class="breadcrumb-item active">MSAL 인증 오류</li>
+	</ol>
+	<!-- END breadcrumb -->
+	<!-- BEGIN page-header -->
+	<h1 class="page-header">인증 오류 정보</h1>
+	<!-- END page-header -->
+	<!-- BEGIN panel -->
+	<div class="panel panel-inverse">
+		<div class="panel-heading">
+			<h4 class="panel-title"></h4>
+			<div class="panel-heading-btn">
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="row mb-15px">
+				<label class="form-label col-form-label col-md-3">오류 코드</label>
+				<div class="col-sm-9">
+					<label class="form-label col-form-label col-md-3">@Model.Error</label>
+				</div>
+			</div>
+			<div class="row mb-15px">
+				<label class="form-label col-form-label col-md-3">오류 설명</label>
+				<div class="col-sm-9">
+					<label class="form-label col-form-label">@Model.ErrorDescription</label>
+				</div>
+			</div>
+			<div class="row mb-15px">
+				<a href="@Url.Action("Index", "Board")">홈으로</a>
+			</div>
+		</div>
+	</div>
+	<!-- END panel -->
+</div>
+<!-- END #content -->

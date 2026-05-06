@@ -1,0 +1,70 @@
+﻿@model BoardListViewModel
+<!-- BEGIN #content -->
+<div id="content" class="app-content">
+	<!-- BEGIN breadcrumb -->
+	<ol class="breadcrumb float-xl-end">
+		<li class="breadcrumb-item">게시판</li>
+		<li class="breadcrumb-item active">목록</li>
+	</ol>
+	<!-- END breadcrumb -->
+	<!-- BEGIN page-header -->
+	<h1 class="page-header">일반 게시판 <small>게시 글을 읽기 위해서 목록에서 클릭하세요...</small></h1>
+	<!-- END page-header -->
+	<!-- BEGIN panel -->
+	<div class="panel panel-inverse">
+		<div class="panel-heading">
+			<h4 class="panel-title">게시글</h4>
+			<div class="panel-heading-btn">
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa-solid fa-expand"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa-solid fa-redo"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa-solid fa-minus"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa-solid fa-times"></i></a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<a href="@Url.Action(nameof(Write))" class="btn btn-primary">글쓰기</a>
+			<div class="table-responsive">
+				<table class="table table-striped mb-0">
+					<thead>
+						<tr>
+							<th width="70%">주제</th>
+							<th>작성자</th>
+							<th>작성일자</th>
+							<th>읽은 휫수</th>
+						</tr>
+					</thead>
+					<tbody>
+						@if (Model.PostItems == null || !Model.PostItems.Any())
+						{
+							<tr>
+								<td colspan="4">등록된 글이 없습니다.</td>
+							</tr>
+						}
+						else
+						{
+							foreach (var item in Model.PostItems)
+							{
+								<tr>
+									<td>
+										<a href="@Url.Action("Read", new {Id=item.Id})">@item.Subject</a>
+									</td>
+									<td>
+										@item.Writer
+									</td>
+									<td>
+										@item.WhenWrited.ToShortDateString()
+									</td>
+									<td>
+										@item.ReadCount
+									</td>
+								</tr>
+							}
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- END panel -->
+</div>
+<!-- END #content -->

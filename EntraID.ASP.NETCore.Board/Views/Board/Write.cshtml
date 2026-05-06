@@ -1,0 +1,46 @@
+﻿@model PostItemViewModel
+
+<!-- BEGIN #content -->
+<div id="content" class="app-content">
+	<!-- BEGIN breadcrumb -->
+	<ol class="breadcrumb float-xl-end">
+		<li class="breadcrumb-item">게시판</li>
+		<li class="breadcrumb-item active">글쓰기</li>
+	</ol>
+	<!-- END breadcrumb -->
+	<!-- BEGIN page-header -->
+	<h1 class="page-header">게시글쓰기</h1>
+	<!-- END page-header -->
+	<!-- BEGIN panel -->
+	<div class="panel panel-inverse">
+		<div class="panel-heading">
+			<h4 class="panel-title">게시글쓰기</h4>
+			<div class="panel-heading-btn">
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa-solid fa-expand"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa-solid fa-redo"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa-solid fa-minus"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa-solid fa-times"></i></a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<form method="post">
+				<input type="submit" class="btn btn-primary" value="등록"/>
+				<input type="button" class="btn btn-default" value="취소" onclick="document.location.href = '@Url.Action("Index")'"/>
+				<div class="row mb-15px">
+					<label class="form-label col-form-label col-md-3">제목</label>
+					<div class="col-md-9">
+						<input type="text" name="subject" class="form-control mb-5px" placeholder="제목을 입력하세요."/>
+					</div>
+				</div>
+				<div class="row mb-15px">
+					<label class="form-label col-form-label col-md-3">내용</label>
+					<div class="col-md-9">
+						<textarea name="content" class="form-control" rows="10"></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- END panel -->
+</div>
+<!-- END #content -->
