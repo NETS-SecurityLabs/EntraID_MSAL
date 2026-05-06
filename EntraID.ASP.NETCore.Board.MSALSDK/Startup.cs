@@ -39,7 +39,7 @@ namespace EntraID.ASP.NETCore.Board
 					// 테넌트 ID를 설정한다.
 					idOptions.TenantId = Configuration.GetValue<string>("EntraID:TenantID");
 					// Entra 관리센터에서 등록한 앱의 ID를 설정한다.
-					idOptions.ClientId = Configuration.GetValue<string>("EntraID:ClientId");
+					idOptions.ClientId = Configuration.GetValue<string>("EntraID:ClientID");
 					// Entra ID 인증 기관의 인스턴스 URI를 설정한다. 
 					idOptions.Instance = Configuration.GetValue<string>("EntraID:Instance");
 				});

@@ -17,22 +17,22 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 		[HttpGet]
 		public IActionResult Login(string returnUrl)
 		{
+			// 로그인 완료 후에 최종적으로 되돌아갈 URL이 전달되지 않았을 경우에
+			// 게시판 목록 조회 페이지로 기본 설정한다.
+			if (string.IsNullOrWhiteSpace(returnUrl))
+			{
+				returnUrl = Url.Action("Index", "Board");
+			}
+
 			if (signInManager.IsAuthenticated)
 			{
 				// 이미 인증되어 있기 때문에, 게시판목록 페이지로 이동한다.
-				return RedirectToAction("Index", "Board");
+				return Redirect(returnUrl);
 			}
 
 			LoginViewModel model = new LoginViewModel(signInManager.LoginSession);
 			model.InvalidCredential = false;
-			if (string.IsNullOrWhiteSpace(returnUrl))
-			{
-				model.ReturnUrl = Url.Action("Index", "Board");
-			}
-			else
-			{
-				model.ReturnUrl = returnUrl;
-			}
+			model.ReturnUrl = returnUrl;
 
 			return View(model);
 		}

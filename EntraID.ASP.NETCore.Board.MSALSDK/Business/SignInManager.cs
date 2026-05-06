@@ -112,6 +112,7 @@ namespace EntraID.ASP.NETCore.Board.Business
 		{
 			if(!userPrincipal.Identity.IsAuthenticated)
 			{
+				setNoAuthn();
 				return false;
 			}
 
@@ -126,7 +127,8 @@ namespace EntraID.ASP.NETCore.Board.Business
 			if(userInfo == null)
 			{
 				// Entra ID에서 반환한 인증 정보의 이메일에 해당하는 샘플 앱 사용자 정보가 존재하지 않기 때문에, 샘플 앱 입장에서는
-				// 사용자 인증에 실패한 경우가 된다. 
+				// 사용자 인증에 실패한 경우가 된다.
+				setNoAuthn();
 				return false;
 			}
 			

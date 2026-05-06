@@ -15,12 +15,6 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 {
 	public class MsalAuthenticationController : BoardBaseController
 	{
-		private readonly IConfiguration configuration;
-		public MsalAuthenticationController(IConfiguration config)
-		{
-			configuration = config;
-		}
-
 		public IActionResult SignIn(string returnUrl)
 		{
 			if(string.IsNullOrWhiteSpace(returnUrl))

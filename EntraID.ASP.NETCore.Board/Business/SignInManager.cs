@@ -86,6 +86,7 @@ namespace EntraID.ASP.NETCore.Board.Business
 			var userInfo = UserManager.GetUserInfo(username);
 			if (userInfo == null)
 			{
+				setNoAuthn();
 				return false;
 			}
 			
