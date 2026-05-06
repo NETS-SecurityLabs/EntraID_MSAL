@@ -1,5 +1,7 @@
 ﻿using EntraID.ASP.NETCore.Board.Models;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -14,12 +16,8 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 {
 	public class HomeController : BoardBaseController
 	{
-		public HomeController()
-		{
-		}
-
 		[HttpGet]
-		public IActionResult Login(string? returnUrl)
+		public IActionResult Login(string returnUrl)
 		{
 			// 로그인 완료 후에 최종적으로 되돌아갈 URL이 전달되지 않았을 경우에
 			// 게시판 목록 조회 페이지로 기본 설정한다.
@@ -37,6 +35,21 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 			// MSAL SDK를 적용하여 사용자를 인증하도록 변경하기 위해서 MsalAuthenticationController의 SignIn 액션으로
 			// 리다이렉트한다.
 			return RedirectToAction("SignIn", "MsalAuthentication", new { returnUrl = returnUrl });
+		}
+
+		public ActionResult Logout()
+		{
+			signInManager.Logout(Response);
+
+			return SignOut(
+				new AuthenticationProperties
+				{
+					// 모든 로그아웃 처리 과정이 완료된 후에, 최종적으로 되돌아 갈 URL을 설정한다.
+					// 샘플 앱은 게시판 목록 페이지로 이동하도록 설정.
+					RedirectUri = Url.Action("Index", "Board")
+				},
+				OpenIdConnectDefaults.AuthenticationScheme,
+				CookieAuthenticationDefaults.AuthenticationScheme);
 		}
 	}
 }

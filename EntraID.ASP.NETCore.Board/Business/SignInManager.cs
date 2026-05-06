@@ -77,20 +77,20 @@ namespace EntraID.ASP.NETCore.Board.Business
 
 		public bool Login(string username, string password, HttpResponse response)
 		{
-			if (UserManager.Authenticate(username, password))
-			{
-				var userInfo = UserManager.GetUserInfo(username);
-				if (userInfo != null)
-				{
-					saveSignIn(userInfo.DisplayName, userInfo.UserName, true, DateTime.Now, response);
-				}
-				return true;
-			}
-			else
+			if (!UserManager.Authenticate(username, password))
 			{
 				setNoAuthn();
 				return false;
 			}
+
+			var userInfo = UserManager.GetUserInfo(username);
+			if (userInfo == null)
+			{
+				return false;
+			}
+			
+			saveSignIn(userInfo.DisplayName, userInfo.UserName, true, DateTime.Now, response);
+			return true;
 		}
 
 		public void Logout(HttpResponse response)
