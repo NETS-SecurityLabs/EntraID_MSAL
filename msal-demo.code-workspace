@@ -5,9 +5,6 @@
 		},
 		{
 			"path": "EntraID.ASP.NETCore.Board.MSALSDK"
-		},
-		{
-			"path": "EntraID.ASP.NETCore.Board.MSALSDKFull"
 		}
 	],
 	"settings": {}

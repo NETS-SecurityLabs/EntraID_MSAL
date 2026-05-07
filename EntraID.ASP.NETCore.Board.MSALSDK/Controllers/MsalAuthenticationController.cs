@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Web;
+using System.Collections.Generic;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using EntraID.ASP.NETCore.Board.ViewModels;
 
 namespace EntraID.ASP.NETCore.Board.Controllers
 {
