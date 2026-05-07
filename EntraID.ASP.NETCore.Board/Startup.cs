@@ -39,7 +39,7 @@ namespace EntraID.ASP.NETCore.Board
 			app.UseStaticFiles();
 
 			app.UseRouting();
-
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
