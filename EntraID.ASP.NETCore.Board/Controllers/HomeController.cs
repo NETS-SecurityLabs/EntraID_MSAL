@@ -1,13 +1,7 @@
-﻿using EntraID.ASP.NETCore.Board.Models;
-
+﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using EntraID.ASP.NETCore.Board.Models;
 using EntraID.ASP.NETCore.Board.ViewModels;
 
 namespace EntraID.ASP.NETCore.Board.Controllers

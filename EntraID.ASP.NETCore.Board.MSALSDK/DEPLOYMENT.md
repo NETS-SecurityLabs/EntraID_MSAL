@@ -33,6 +33,10 @@ az --version
 ---
 
 ## 빠른 시작
+**VS Code 사용자:**
+1. VS Code 탐색기에서 프로젝트 폴더(이 DEPLOYMENT.md가 있는 폴더) 선택
+2. 우클릭 → **"터미널에서 열기"** (또는 "Open in Integrated Terminal")
+3. 아래 명령 실행
 
 ### 1단계: Azure 로그인
 ```powershell
@@ -41,12 +45,6 @@ az login
 브라우저에서 Azure 계정으로 로그인합니다.
 
 ### 2단계: 프로젝트 루트에서 배포 실행
-
-**VS Code 사용자:**
-1. VS Code 탐색기에서 프로젝트 폴더(이 DEPLOYMENT.md가 있는 폴더) 선택
-2. 우클릭 → **"터미널에서 열기"** (또는 "Open in Integrated Terminal")
-3. 아래 명령 실행
-
 ```powershell
 pwsh -NoProfile -ExecutionPolicy Bypass -File .\scripts\deploy-appservice.ps1
 ```
