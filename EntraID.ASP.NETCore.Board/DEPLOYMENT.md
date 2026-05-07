@@ -23,7 +23,6 @@ Remove-Item .\AzureCLI.msi
 ```
 - 설치 후 PowerShell/터미널 재시작
 
-
 설치 확인:
 ```powershell
 az --version
@@ -34,8 +33,9 @@ az --version
 - App Service를 만들 수 있는 권한
 
 ### 3. 로컬 개발 환경
-- .NET 10.0 SDK
 - Visual Studio Code 또는 선호하는 에디터
+- .NET 10.0 SDK https://dotnet.microsoft.com/ko-kr/download/dotnet/10.0
+- powershell 7 https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6#msi
 
 ---
 
