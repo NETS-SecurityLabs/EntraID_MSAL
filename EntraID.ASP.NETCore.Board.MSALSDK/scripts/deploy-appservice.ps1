@@ -1,5 +1,5 @@
 param(
-    [string]$ProjectPath = ".\EntraID.ASP.NETCore.Board.csproj",
+    [string]$ProjectPath = ".\EntraID.ASP.NETCore.Board.MSALSDK.csproj",
     [string]$PublishProfile = "Properties/PublishProfiles/VSCode-AppService.pubxml",
     [string]$Configuration = "Release",
     [string]$MsDeployProfilePath = "Properties/PublishProfiles/MSAL-DEMO-TOBE - Web Deploy.pubxml",
