@@ -1,31 +1,37 @@
 ﻿using System;
 using System.Web;
-using System.Collections.Generic;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using EntraID.ASP.NETCore.Board.ViewModels;
 
 namespace EntraID.ASP.NETCore.Board.Controllers
 {
 	public class MsalAuthenticationController : BoardBaseController
 	{
-		public IActionResult ClaimView()
+		public IActionResult SignIn(string returnUrl)
 		{
-			if(!signInManager.IsAuthenticated)
-			{
-				return RedirectToAction("Login", "Home", new {returnUrl = Url.Action(nameof(ClaimView))});
-			}
+			if(string.IsNullOrWhiteSpace(returnUrl))
+				returnUrl = Url.Action("Index", "Board");
+			if(signInManager.IsAuthenticated)
+				return Redirect(returnUrl);
+			else
+				return Challenge( new AuthenticationProperties { RedirectUri = Url.Action(nameof(SignInCompleted), new { returnUrl = HttpUtility.UrlEncode(returnUrl) }) }, OpenIdConnectDefaults.AuthenticationScheme);
+		}
 
-			var model = new ClaimViewModel(signInManager.LoginSession);
-			model.Claims = new Dictionary<string, string>();
-			foreach (var claim in (User.Identity as ClaimsIdentity).Claims)
+		public IActionResult SignInCompleted(string returnUrl)
+		{
+			if(!User.Identity.IsAuthenticated)
+				throw new Exception("MSAL 인증이 완료되었지만, ASP.NET Core 인증이 되지 않았습니다.");
+			else
 			{
-				model.Claims.Add(claim.Type, claim.Value);
-			}
+				if(!signInManager.Login(User, Response))
+					throw new Exception("MSAL 인증은 완료되었지만, 인증을 완료한 사용자는 없는 사용자 입니다.");
 
-			return View(model);			
-		}		
+				if (string.IsNullOrWhiteSpace(returnUrl))
+					returnUrl = Url.Action("Index", "Board");
+
+				return Redirect(HttpUtility.UrlDecode(returnUrl));
+			}
+		}
 	}
 }

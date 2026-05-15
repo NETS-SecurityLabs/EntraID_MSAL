@@ -1,12 +1,10 @@
 ﻿using EntraID.ASP.NETCore.Board.Business;
-
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Web;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Identity.Web;
 
 namespace EntraID.ASP.NETCore.Board
 {
@@ -24,7 +22,7 @@ namespace EntraID.ASP.NETCore.Board
 		{
 			// ASP.NET Core 인증을 OpenIdConnect 인증 방식으로 설정하기 위해서 AddAuthentication과
 			// AddMicrosoftIdentityWebApp을 호출한다.
-			services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme) // 인증 방식으로 OpenidConnect를 사용
+			services.AddAuthentication(Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme) // 인증 방식으로 OpenidConnect를 사용
 				.AddMicrosoftIdentityWebApp(idOptions =>
 				{
 					// 테넌트 ID를 설정한다.

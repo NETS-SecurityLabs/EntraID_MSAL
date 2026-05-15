@@ -1,10 +1,10 @@
-﻿using EntraID.ASP.NETCore.Board.Models;
-
-using Microsoft.AspNetCore.Http;
-
-using System;
+﻿using System;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http;
+using EntraID.ASP.NETCore.Board.Models;
 
 namespace EntraID.ASP.NETCore.Board.Business
 {
@@ -21,17 +21,14 @@ namespace EntraID.ASP.NETCore.Board.Business
 			};
 		}
 		public bool IsAuthenticated => LoginSession.IsAuthenticated;
-		
 		public LoginSession LoginSession{ get; private set; }
-
 		private const string SignInCookieName = "SignInfo";
+
 		public void CheckSignIn(HttpRequest request)
 		{
 			var signInCookie = request.Cookies[SignInCookieName];
 			if (signInCookie == null)
-			{
 				setNoAuthn();
-			}
 			else
 			{
 				var sessionInfoJson = Convert.FromBase64String(signInCookie);
@@ -99,5 +96,7 @@ namespace EntraID.ASP.NETCore.Board.Business
 			response.Cookies.Delete(SignInCookieName);
 			setNoAuthn();
 		}
+		
+		
 	}
 }

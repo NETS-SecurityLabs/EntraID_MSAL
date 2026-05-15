@@ -1,12 +1,10 @@
-﻿using EntraID.ASP.NETCore.Board.Models;
-
-using Microsoft.AspNetCore.Http;
-using Microsoft.Identity.Web;
-using System;
+﻿using System;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http;
+using EntraID.ASP.NETCore.Board.Models;
 
 namespace EntraID.ASP.NETCore.Board.Business
 {
@@ -23,22 +21,16 @@ namespace EntraID.ASP.NETCore.Board.Business
 			};
 		}
 		public bool IsAuthenticated => LoginSession.IsAuthenticated;
-		
 		public LoginSession LoginSession{ get; private set; }
-
 		private const string SignInCookieName = "SignInfo";
+
 		public void CheckSignIn(HttpRequest request)
 		{
 			var signInCookie = request.Cookies[SignInCookieName];
 			if (signInCookie == null)
-			{
-				// 사용자 인증 쿠키가 존재하지 않기 때문에, 미 인증 상태를 설정한다.
 				setNoAuthn();
-			}
 			else
 			{
-				// 사용자 인증 쿠키가 존재하기 때문에, 이 쿠키로 부터 사용자의 인증 세션 정보를
-				// 복원한다.
 				var sessionInfoJson = Convert.FromBase64String(signInCookie);
 				LoginSession = JsonSerializer.Deserialize<LoginSession>(sessionInfoJson);
 			}
@@ -98,16 +90,12 @@ namespace EntraID.ASP.NETCore.Board.Business
 			}
 		}
 
-		/// <summary>
-		/// MSAL SDK를 이용해서 사용자 인증을 처리하는 메소드이다.
-		/// </summary>
-		/// <param name="userPrincipal">
-		/// MSAL SDK가 제공하는 사용자 인증 정보
-		/// </param>
-		/// <param name="response">
-		/// 샘플 앱 고유의 인증 정보를 쿠키로 발행하기 위해서 사용.
-		/// </param>
-		/// <returns></returns>
+		public void Logout(HttpResponse response)
+		{
+			response.Cookies.Delete(SignInCookieName);
+			setNoAuthn();
+		}
+
 		public bool Login(IPrincipal userPrincipal, HttpResponse response)
 		{
 			if(!userPrincipal.Identity.IsAuthenticated)
@@ -117,29 +105,17 @@ namespace EntraID.ASP.NETCore.Board.Business
 			}
 
 			var claimsIdentity = (userPrincipal.Identity as ClaimsIdentity);
-
-			// 샘플 앱은 원래 사용자 ID를 이용해서 인증을 수행했다.
-			// Entra ID로 인증을 받은 경우에는 사용자 ID가 아니라, Entra ID에 등록된 사용자의 UPN이 사용자를 위한 인증 식별자로 사용된다.
-			var userName = claimsIdentity.FindFirst(ClaimConstants.PreferredUserName).Value; 
-
-			// 샘플 앱은 UPN을 통해 사용자의 이메일을 통해 사용자를 매칭하도록 한다.
+			var userName = claimsIdentity.FindFirst(Microsoft.Identity.Web.ClaimConstants.PreferredUserName).Value; 
 			UserInfo userInfo = UserManager.GetUserInfoByEmail(userName);
+
 			if(userInfo == null)
 			{
-				// Entra ID에서 반환한 인증 정보의 이메일에 해당하는 샘플 앱 사용자 정보가 존재하지 않기 때문에, 샘플 앱 입장에서는
-				// 사용자 인증에 실패한 경우가 된다.
 				setNoAuthn();
 				return false;
 			}
 			
 			saveSignIn(userInfo.DisplayName, userInfo.UserName, true, DateTime.Now, response);
 			return true;
-		}
-
-		public void Logout(HttpResponse response)
-		{
-			response.Cookies.Delete(SignInCookieName);
-			setNoAuthn();
 		}
 	}
 }

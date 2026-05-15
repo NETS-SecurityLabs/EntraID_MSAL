@@ -1,16 +1,10 @@
 ﻿using EntraID.ASP.NETCore.Board.Business;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EntraID.ASP.NETCore.Board
 {
@@ -26,6 +20,7 @@ namespace EntraID.ASP.NETCore.Board
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+
 			services.AddControllersWithViews();
 			// 앱의 게시판 기능 추가
 			services.AddSingleton<BoardManager>(new BoardManager(Configuration.GetValue<string>("BoardData")));
