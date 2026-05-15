@@ -33,6 +33,7 @@
 
 ### ✅ Step 3: MSAL Entra ID 연결 정보 추가  (3/7)
 [/appsettings.json(#12)](appsettings.json#L12)
+
 Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
 
 <table>
