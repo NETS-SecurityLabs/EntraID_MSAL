@@ -1,10 +1,8 @@
 {
 	"folders": [
 		{
-			"path": "EntraID.ASP.NETCore.Board"
-		},
-		{
-			"path": "EntraID.ASP.NETCore.Board.MSALSDK"
+			"path": ".",
+			"name": "Root"
 		}
 	],
 	"settings": {}
