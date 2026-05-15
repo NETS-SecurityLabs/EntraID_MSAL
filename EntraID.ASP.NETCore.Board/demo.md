@@ -1,6 +1,6 @@
 # 🚀 Demo Step-by-Step
 
-### ✅ Step 1: Entra ID App Registration 등록 (1/7)
+### ✅ Step 1: Entra ID 정보 확인 및 App Registration 등록 (1/7)
 
 
 ### ✅ Step 2: Microsoft.Identity.Web 패키지 추가 (2/7)
@@ -32,8 +32,8 @@
 </table>
 
 ### ✅ Step 3: MSAL Entra ID 연결 정보 추가  (3/7)
-Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
 [/appsettings.json(#12)](appsettings.json#L12)
+Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
 
 <table>
 <tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
