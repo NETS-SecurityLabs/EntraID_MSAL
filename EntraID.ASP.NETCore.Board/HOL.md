@@ -1,4 +1,4 @@
-# 🚀 Demo Step-by-Step
+# 🚀 HOL Step-by-Step
 
 ### ✅ Step 1: Entra ID 정보 확인 및 App Registration 등록 (1/7)
 
@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/EntraID.ASP.NETCore.Board.csproj(#9)](EntraID.ASP.NETCore.Board.csproj#L9)
+[/EntraID.ASP.NETCore.Board.csproj(#9)](./EntraID.ASP.NETCore.Board.csproj#L9)
 <br/>
 3. 변경 후 ✔️ 
 ```diff
