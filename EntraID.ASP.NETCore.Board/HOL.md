@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/EntraID.ASP.NETCore.Board.csproj(#9)](./EntraID.ASP.NETCore.Board.csproj#L9)
+- [/EntraID.ASP.NETCore.Board.csproj(#9)](./EntraID.ASP.NETCore.Board.csproj#L9)
 <br/>
 3. 변경 후 ✔️ 
 ```diff
@@ -28,7 +28,7 @@
   }
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다. Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
-[/appsettings.json(#12)](appsettings.json#L12)
+- [/appsettings.json(#12)](appsettings.json#L12)
 <br/>
 
 3. 변경 후 ✔️ 
@@ -52,7 +52,7 @@
 using Microsoft.Identity.Web;
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/Startup.cs(#7)](Startup.cs#L7)
+- [/Startup.cs(#7)](Startup.cs#L7)
 <br/>
 
 3. 변경 후 ✔️ 
@@ -76,7 +76,7 @@ using Microsoft.Identity.Web;
 ```
 
 5. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/Startup.cs(#23)](Startup.cs#L23)
+- [/Startup.cs(#23)](Startup.cs#L23)
 <br/>
 
 6. 변경 후 ✔️ 
@@ -139,7 +139,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 }
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/Controllers/MsalAuthenticationController.cs(#1)](./Controllers/MsalAuthenticationController.cs#L1)
+- [/Controllers/MsalAuthenticationController.cs(#1)](./Controllers/MsalAuthenticationController.cs#L1)
 <br/>
 
 3. 변경 후 ✔️ 
@@ -172,7 +172,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 		}
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/Business/SignInManager.cs(#100)](./Business/SignInManager.cs#L100)
+- [/Business/SignInManager.cs(#100)](./Business/SignInManager.cs#L100)
 <br/>
 
 3. 변경 후 ✔️ 
@@ -205,7 +205,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
      		return RedirectToAction("SignIn", "MsalAuthentication", new { returnUrl = returnUrl });
 ```
 2. 아래 링크를 클릭하여 붙여넣기 합니다. AS-IS 로그인 페이지로 이동하는 19행은 //를 코드 앞에 붙여 주석처리를 한 후 20행에 새로운 내용을 붙여넣기 합니다.
-[/Controllers//HomeController.cs(#19)](./Controllers//HomeController.cs#L19)
+- [/Controllers//HomeController.cs(#19)](./Controllers//HomeController.cs#L19)
 <br/>
 
 3. 변경 후 ✔️ 
@@ -224,7 +224,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 ```
 
 5. 아래 링크를 클릭하여 붙여넣기 합니다.
-[/Controllers//HomeController.cs(#28)](./Controllers//HomeController.cs#L28)
+- [/Controllers//HomeController.cs(#28)](./Controllers//HomeController.cs#L28)
 <br/>
 
 6. 변경 후 ✔️ 
