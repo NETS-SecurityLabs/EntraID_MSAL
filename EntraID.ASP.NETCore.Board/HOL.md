@@ -39,7 +39,7 @@ https://verbose-space-winner-r4g5wqr74rjwfxjg-8080.app.github.dev/signout-callba
 2-7. 앱의 속성 중 "애플리케이션(클라이언트) ID" 항목을 찾아 복사하여 "실습.txt" 파일에 복사합니다.
 2-8. 앱의 속성 중 "디렉터리(테넌트) ID" 항목을 찾아 복사하여 "실습.txt" 파일에 복사합니다.
 2-7. "Authentication (Preview)" 메뉴로 이동
-2-8. "+ 리디렉션 URI 추가" 버튼 선택 웹 어플리케이션에서 "웹"을 선택한 후 위의 1번 단계에서 기록한 OIDC Callback URL을 하나씩 총 2번 입력합니다.
+2-8. "+ 리디렉션 URI 추가" 버튼 선택 웹 어플리케이션에서 "웹"을 선택한 후 위의 1번 단계에서 기록한 OIDC Callback URL을 하나씩 총 2번 입력합니다. (선택 시 ID 토큰 체크)
 
 ### ✅ Step 2: Microsoft.Identity.Web 패키지 추가 (2/7)
 1. 다음 내용을 복사합니다.
