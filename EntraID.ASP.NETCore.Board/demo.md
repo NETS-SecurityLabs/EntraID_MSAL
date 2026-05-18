@@ -4,43 +4,22 @@
 
 
 ### ✅ Step 2: Microsoft.Identity.Web 패키지 추가 (2/7)
-[/EntraID.ASP.NETCore.Board.csproj(#9)](EntraID.ASP.NETCore.Board.csproj#L9)
-
-<table>
-<tr><td><small>📋 아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
-```
+1. 다음 내용을 복사합니다.
+```xml
     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
 ```
-
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+2. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/EntraID.ASP.NETCore.Board.csproj(#9)](EntraID.ASP.NETCore.Board.csproj#L9)
+<br/>
+3. 변경 후 ✔️ 
 ```diff
 8: <ItemGroup>
 +9:     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
 10: </ItemGroup>
 ```
 
-</td>
-</tr>
-</table>
-
 ### ✅ Step 3: MSAL Entra ID 연결 정보 추가  (3/7)
-[/appsettings.json(#12)](appsettings.json#L12)
-
-Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
-
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+1. 다음 내용을 복사합니다.
 ```json
 ,"EntraID": {
     "ClientID": "{ClientID}",
@@ -48,13 +27,11 @@ Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 C
     "Instance": "https://login.microsoftonline.com/"
   }
 ```
+2. 아래 링크를 클릭하여 붙여넣기 합니다. Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 Client ID로 교체합니다.
+[/appsettings.json(#12)](appsettings.json#L12)
+<br/>
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+3. 변경 후 ✔️ 
 ```diff
 {
         ...
@@ -69,28 +46,16 @@ Demo 진행과정에서 확인된 Entra ID 테넌트 ID와 App Registration의 C
 } 
 ```
 
-</td>
-</tr>
-</table>
-
 ### ✅ Step 4: 컨테이너에 MSAL 인증 서비스 등록  (4/7)
-[/Startup.cs(#7)](Startup.cs#L7)
-
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+1. 다음 내용을 복사합니다.
 ```csharp
 using Microsoft.Identity.Web;
 ```
+2. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/Startup.cs(#7)](Startup.cs#L7)
+<br/>
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+3. 변경 후 ✔️ 
 ```diff
  6: using Microsoft.AspNetCore.HttpOverrides;
 +7: using Microsoft.Identity.Web;
@@ -98,20 +63,10 @@ using Microsoft.Identity.Web;
  9: namespace EntraID.ASP.NETCore.Board
 ```
 
-</td>
-</tr>
-</table>
-
-[/Startup.cs(#23)](Startup.cs#L23)
-
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+4. 다음 내용을 복사합니다.
 ```csharp
      		services
-      			.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+      			.AddAuthentication(Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme)
       			.AddMicrosoftIdentityWebApp(idOptions => 
       			{
           			idOptions.TenantId = Configuration.GetValue<string>("EntraID:TenantID");
@@ -120,12 +75,11 @@ using Microsoft.Identity.Web;
       			});
 ```
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
+5. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/Startup.cs(#23)](Startup.cs#L23)
+<br/>
 
+6. 변경 후 ✔️ 
 ```diff
  27: public void ConfigureServices(IServiceCollection services)
  28: {
@@ -143,17 +97,8 @@ using Microsoft.Identity.Web;
  40: }
 ```
 
-</td>
-</tr>
-</table>
-
 ### ✅ Step 5: MSAL 인증 흐름 시작 & 흐름 완료 코드 추가  (5/7)
-[/Controllers/MsalAuthenticationController.cs(#1)](/Controllers/MsalAuthenticationController.cs#L1)
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+1. 다음 내용을 복사합니다.
 ```csharp
 using System;
 using System.Web;
@@ -193,28 +138,16 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 	}
 }
 ```
+2. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/Controllers/MsalAuthenticationController.cs(#1)](./Controllers/MsalAuthenticationController.cs#L1)
+<br/>
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+3. 변경 후 ✔️ 
 ```diff
 + (빈 파일에서 복사한 내용 전체 추가)
 ```
-
-</td>
-</tr>
-</table>
-
 ### ✅ Step 6: MSAL 인증 완료 확인  (6/7)
-[/Business/SignInManager.cs(#100)](/Business/SignInManager.cs#L100)
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+1. 다음 내용을 복사합니다.
 ```csharp
         public bool Login(IPrincipal userPrincipal, HttpResponse response)
 		{
@@ -238,13 +171,11 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 			return true;
 		}
 ```
+2. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/Business/SignInManager.cs(#100)](./Business/SignInManager.cs#L100)
+<br/>
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+3. 변경 후 ✔️ 
 ```diff
 +100:  public bool Login(IPrincipal userPrincipal, HttpResponse response)
 +101:	{
@@ -268,46 +199,23 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 +119:		return true;
 +120:	}
 ```
-
-</td>
-</tr>
-</table>
-
 ### ✅ Step 7: 인증 진입점 및 MSAL 로그아웃 적용  (7/7)
-[/Controllers//HomeController.cs(#19)](/Controllers//HomeController.cs#L19)
-AS-IS 로그인 페이지로 이동하는 19행은 //를 코드 앞에 붙여 주석처리를 한 후 20행에 새로운 내용을 붙여넣기 합니다.
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+1. 다음 내용을 복사합니다.
 ```csharp
-     return RedirectToAction("SignIn", "MsalAuthentication", new { returnUrl = returnUrl });
+     		return RedirectToAction("SignIn", "MsalAuthentication", new { returnUrl = returnUrl });
 ```
+2. 아래 링크를 클릭하여 붙여넣기 합니다. AS-IS 로그인 페이지로 이동하는 19행은 //를 코드 앞에 붙여 주석처리를 한 후 20행에 새로운 내용을 붙여넣기 합니다.
+[/Controllers//HomeController.cs(#19)](./Controllers//HomeController.cs#L19)
+<br/>
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
-
+3. 변경 후 ✔️ 
 ```diff
 -19: return View(new LoginViewModel(signInManager.LoginSession) { InvalidCredential = false, ReturnUrl = returnUrl})
 +19: //return View(new LoginViewModel(signInManager.LoginSession) { InvalidCredential = false, ReturnUrl = returnUrl})
 +20: return RedirectToAction("SignIn", "MsalAuthentication", new { returnUrl = returnUrl });
 ```
 
-</td>
-</tr>
-</table>
-
-[/Controllers//HomeController.cs(#28)](/Controllers//HomeController.cs#L28)
- 27행은 //를 코드 앞에 붙여 주석처리를 한 후 28행에 새로운 내용을 붙여넣기 합니다.
-<table>
-<tr><td><small>📋아래 내용을 복사해서 붙여넣기 합니다.</small></td></tr>
-<tr>
-<td>
-
+4. 다음 내용을 복사합니다.
 ```csharp
 			return SignOut(
 				new Microsoft.AspNetCore.Authentication.AuthenticationProperties {RedirectUri = Url.Action("Index", "Board")},
@@ -315,21 +223,16 @@ AS-IS 로그인 페이지로 이동하는 19행은 //를 코드 앞에 붙여 �
 				Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
-</td>
-</tr>
-<tr><td><small>✔️ 변경 후</small></td></tr>
-<tr>
-<td>
+5. 아래 링크를 클릭하여 붙여넣기 합니다.
+[/Controllers//HomeController.cs(#28)](./Controllers//HomeController.cs#L28)
+<br/>
 
+6. 변경 후 ✔️ 
 ```diff
--27: return RedirectToAction("Index", "Board");
-+27: //return RedirectToAction("Index", "Board");
-+28: return SignOut(
-+29:	new Microsoft.AspNetCore.Authentication.AuthenticationProperties {RedirectUri = Url.Action("Index", "Board")},
-+30:     	Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme,
-+31:		Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme);
+-28: return RedirectToAction("Index", "Board");
++28: //return RedirectToAction("Index", "Board");
++29: return SignOut(
++30:	new Microsoft.AspNetCore.Authentication.AuthenticationProperties {RedirectUri = Url.Action("Index", "Board")},
++31:     	Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme,
++32:		Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme);
 ```
-
-</td>
-</tr>
-</table>
