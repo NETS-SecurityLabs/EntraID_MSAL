@@ -11,8 +11,8 @@
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
 - [/EntraID.ASP.NETCore.Board.csproj(#9)](./EntraID.ASP.NETCore.Board.csproj#L9)
 <br/>
-3. 확인
 
+3. ✔️ 확인
 ```diff
  8: <ItemGroup>
 +9:     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
@@ -32,7 +32,7 @@
 - [/appsettings.json(#12)](appsettings.json#L12)
 <br/>
 
-3. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
 {
         ...
@@ -56,7 +56,7 @@ using Microsoft.Identity.Web;
 - [/Startup.cs(#7)](Startup.cs#L7)
 <br/>
 
-3. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
  6: using Microsoft.AspNetCore.HttpOverrides;
 +7: using Microsoft.Identity.Web;
@@ -80,7 +80,7 @@ using Microsoft.Identity.Web;
 - [/Startup.cs(#23)](Startup.cs#L23)
 <br/>
 
-6. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
  27: public void ConfigureServices(IServiceCollection services)
  28: {
@@ -143,7 +143,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 - [/Controllers/MsalAuthenticationController.cs(#1)](./Controllers/MsalAuthenticationController.cs#L1)
 <br/>
 
-3. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
 + (빈 파일에서 복사한 내용 전체 추가)
 ```
@@ -176,7 +176,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 - [/Business/SignInManager.cs(#100)](./Business/SignInManager.cs#L100)
 <br/>
 
-3. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
 +100:  public bool Login(IPrincipal userPrincipal, HttpResponse response)
 +101:	{
@@ -209,7 +209,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 - [/Controllers//HomeController.cs(#19)](./Controllers//HomeController.cs#L19)
 <br/>
 
-3. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
 -19: return View(new LoginViewModel(signInManager.LoginSession) { InvalidCredential = false, ReturnUrl = returnUrl})
 +19: //return View(new LoginViewModel(signInManager.LoginSession) { InvalidCredential = false, ReturnUrl = returnUrl})
@@ -228,7 +228,7 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 - [/Controllers//HomeController.cs(#28)](./Controllers//HomeController.cs#L28)
 <br/>
 
-6. 변경 후 ✔️ 
+3. ✔️ 확인
 ```diff
 -28: return RedirectToAction("Index", "Board");
 +28: //return RedirectToAction("Index", "Board");
