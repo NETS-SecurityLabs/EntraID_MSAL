@@ -1,7 +1,45 @@
 # 🚀 HOL Step-by-Step
 
-### ✅ Step 1: Entra ID 정보 확인 및 App Registration 등록 (1/7)
+### ✅ Step 0: 기존 앱 동작 확인
+1. EntraID.ASP.NETCore.Board 앱을 왼쪽 탐색기에서 확인 후 마우스 우클릭하여 "통합 터미널에서 열기" 선택
+![alt text](../srcs/hol1.png)
 
+2. 터미널 창에서 다음 명령어를 복사하여 붙여넣어 앱 실행
+```cmd
+dotnet run
+```
+![alt text](../srcs/hol2.png)
+
+이 후 오른쪽 아래 영역에 나타나는 "브라우저에서 열기" 버튼을 클릭하면 앱이 새 탭에 표시됩니다.
+![alt text](../srcs/hol3.png)
+
+만약 해당 창이 나타나지 않는 경우에는 하단 탭 중 "포트" 탭을 선택하여 8080 으로 서비스 중인 앱을 찾아 우클릭 통해 브라우저에서 다시 열 수 있습니다.
+![alt text](../srcs/hol4.png)
+
+
+### ✅ Step 1: Entra ID 정보 확인 및 App Registration 등록 (1/7)
+- 이후 진행을 위해 사전에 필요한 정보를 수집하여 기록합니다. 왼쪽 탐색기 창에서 "실습.txt"파일에 중요 정보를 기록하며 진행합니다.
+
+1. Entra ID 인증 후 되돌아갈 주소 확인
+하단 탭 중 "포트" 탭을 선택하여 8080으로 서비스 중인 앱을 찾아 우클릭 후 "로컬 주소 복사" 버튼을 통해 주소를 복사합니다.
+
+복사한 주소를 "실습.txt"파일의 OIDC Callback에 복사하여 아래와 같은 주소를 만듭니다.
+
+ex)OIDC Callback
+https://verbose-space-winner-r4g5wqr74rjwfxjg-8080.app.github.dev/signin-oidc
+https://verbose-space-winner-r4g5wqr74rjwfxjg-8080.app.github.dev/signout-callback-oidc
+
+2. Entra ID App Registration 등록
+2-1. [Entra ID 관리센터](https://entra.microsoft.com) 에 관리자 계정으로 로그인
+2-2. 왼쪽 메뉴에서 "앱 등록" 으로 이동
+2-3. "+ 새 등록" 버튼을 통해 앱 등록
+2-4. MSAL DEMO XXX 이름 선택
+2-5. 지원되는 계정 유형 : 단일 테넌트만 - {테넌트 명}
+2-6. "등록" 버튼
+2-7. 앱의 속성 중 "애플리케이션(클라이언트) ID" 항목을 찾아 복사하여 "실습.txt" 파일에 복사
+2-8. 앱의 속성 중 "디렉터리(테넌트) ID" 항목을 찾아 복사하여 "실습.txt" 파일에 복사
+2-7. "Authentication (Preview)" 메뉴로 이동
+2-8. "+ 리디렉션 URI 추가" 버튼 선택 웹 어플리케이션에서 "웹" 선택 위의 1. 단계에서 기록된 OIDC Callback URL을 모두 입력
 
 ### ✅ Step 2: Microsoft.Identity.Web 패키지 추가 (2/7)
 1. 다음 내용을 복사합니다.

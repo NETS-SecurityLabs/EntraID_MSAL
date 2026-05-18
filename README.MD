@@ -6,7 +6,7 @@ Microsoft Authentication Library(MSAL)을 통해 Entra ID 인증을 적용하는
 
 Codespace에서 실습 예제 파일을 다운로드하는 절차입니다.
 
-* 진행과정에서 복사 붙여넣기를 위한 클립보드 사용 요청 시 허용.
+- **(주의)** 진행과정에서 복사 붙여넣기를 위한 클립보드 사용 요청 시 허용.
 ![alt text](/srcs/image-1.png)
 
 <br>

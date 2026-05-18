@@ -1,12 +1,13 @@
 - App Registration Client ID
-{clientID}
+
 
 - Entra ID Tenant ID
-{Tenant ID}
 
-- OIDC Signin
-{URL}/signin-oidc
-{URL}/signout-callback-oidc
+
+- OIDC Callback
+복사한 주소를 다음 행들의 맨 앞에 커서를 위치시킨 후 붙여넣기 합니다.
+signin-oidc
+signout-callback-oidc
 
 ex)
 https://verbose-space-winner-r4g5wqr74rjwfxjg-8080.app.github.dev/signin-oidc
