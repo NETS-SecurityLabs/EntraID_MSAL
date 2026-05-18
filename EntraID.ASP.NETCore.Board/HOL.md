@@ -11,10 +11,10 @@
 2. 아래 링크를 클릭하여 붙여넣기 합니다.
 - [/EntraID.ASP.NETCore.Board.csproj(#9)](./EntraID.ASP.NETCore.Board.csproj#L9)
 <br/>
-3. 변경 후 ✔️
+3. 확인
 
 ```diff
-8: <ItemGroup>
+ 8: <ItemGroup>
 +9:     <PackageReference Include="Microsoft.Identity.Web" Version="4.8.0" />
 10: </ItemGroup>
 ```
@@ -36,9 +36,9 @@
 ```diff
 {
         ...
-9:	"AllowedHosts": "*",
-10:	"UserInfo": "UserInfos.json",
-11:	"BoardData": "BoardData.json"
+  9:	"AllowedHosts": "*",
+ 10:	"UserInfo": "UserInfos.json",
+ 11:	"BoardData": "BoardData.json"
 +12:    , "EntraID": {
 +13:		"ClientID": "{ClientID}",
 +14:		"TenantID": "{TenantID}",
