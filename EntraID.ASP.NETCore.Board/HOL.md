@@ -287,9 +287,15 @@ namespace EntraID.ASP.NETCore.Board.Controllers
 
 ### ✅ 결과 확인
 1. EntraID.ASP.NETCore.Board 앱을 왼쪽 탐색기에서 확인 후 마우스 우클릭하여 "통합 터미널에서 열기" 선택
+
 ![alt text](../srcs/hol1.png)
 
-2. 터미널 창에서 다음 명령어를 복사하여 붙여넣어 앱 실행
+2. 터미널 창에서 다음 명령어를 복사하여 붙여넣어 앱 빌드
+```cmd
+dotnet build
+```
+
+3. 터미널 창에서 다음 명령어를 복사하여 붙여넣어 앱 실행
 ```cmd
 dotnet run
 ```
