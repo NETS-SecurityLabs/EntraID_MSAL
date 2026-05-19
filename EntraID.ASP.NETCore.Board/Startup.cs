@@ -29,6 +29,14 @@ namespace EntraID.ASP.NETCore.Board
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			var forwardedHeadersOptions = new ForwardedHeadersOptions
+			{
+				ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost
+			};
+			forwardedHeadersOptions.KnownIPNetworks.Clear();
+			forwardedHeadersOptions.KnownProxies.Clear();
+			app.UseForwardedHeaders(forwardedHeadersOptions);
+
 			app.UseDeveloperExceptionPage();
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();

@@ -42,9 +42,12 @@
 			<div class="row mb-15px">
 				하기의 테스트 사용자를 이용해서 로그인 하십시오.
 				<table class="table">
-					<tr>
-						<td>사용자 Id</td><td>암호</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>사용자 Id</th><th>암호</th>
+						</tr>
+					</thead>
+					<tbody>
 					@foreach (var userInfo in UserManager.Users)
 					{
 						<tr>
@@ -52,6 +55,7 @@
 							<td>@userInfo.Password</td>
 						</tr>
 					}
+					</tbody>
 				</table>
 			</div>
 		</div>
