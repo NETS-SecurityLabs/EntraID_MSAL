@@ -1,26 +1,68 @@
 ﻿[
 	{
 		"UserName": "cyniczero",
-		"Password": "Demo!234",
+		"Password": "1234",
 		"Email": "cyniczero@nets.co.kr",
 		"DisplayName": "김두수"
+	},	
+	{
+		"UserName": "kbh",
+		"Password": "1234",
+		"Email": "kbh@lab.castanets.io",
+		"DisplayName": "kbh"
 	},
 	{
-		"UserName": "hykim",
-		"Password": "Demo!234",
-		"Email": "hykim@nets.co.kr",
-		"DisplayName": "김한영"
+		"UserName": "kbhuser01",
+		"Password": "1234",
+		"Email": "kbhuser01@lab.castanets.io",
+		"DisplayName": "kbhuser01"
 	},
 	{
-		"UserName": "honest86",
-		"Password": "Demo!234",
-		"Email": "honest86@nets.co.kr",
-		"DisplayName": "이진호"
+		"UserName": "jh.ha",
+		"Password": "1234",
+		"Email": "jh.ha@lab.castanets.io",
+		"DisplayName": "jh.ha"
 	},
 	{
-		"UserName": "ejpark97",
-		"Password": "Demo!234",
-		"Email": "ejpark97@nets.co.kr",
-		"DisplayName": "박은주"
+		"UserName": "jh.hauser01",
+		"Password": "1234",
+		"Email": "jh.hauser01@lab.castanets.io",
+		"DisplayName": "jh.hauser01"
+	},
+	{
+		"UserName": "jeongdo.kim",
+		"Password": "1234",
+		"Email": "jeongdo.kim@lab.castanets.io",
+		"DisplayName": "jeongdo.kim"
+	},
+	{
+		"UserName": "jeongdo.kimuser01",
+		"Password": "1234",
+		"Email": "jeongdo.kimuser01@lab.castanets.io",
+		"DisplayName": "jeongdo.kimuser01"
+	},
+	{
+		"UserName": "jh.jung",
+		"Password": "1234",
+		"Email": "jh.jung@lab.castanets.io",
+		"DisplayName": "jh.jung"
+	},
+	{
+		"UserName": "jh.junguser01",
+		"Password": "1234",
+		"Email": "jh.junguser01@lab.castanets.io",
+		"DisplayName": "jh.junguser01"
+	},
+	{
+		"UserName": "jspark",
+		"Password": "1234",
+		"Email": "jspark@lab.castanets.io",
+		"DisplayName": "jspark"
+	},
+	{
+		"UserName": "jsparkuser01",
+		"Password": "1234",
+		"Email": "jsparkuser01@lab.castanets.io",
+		"DisplayName": "jsparkuser01"
 	}
 ]
