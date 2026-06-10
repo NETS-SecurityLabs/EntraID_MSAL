@@ -5,6 +5,8 @@
 
 ![alt text](../srcs/hol1.png)
 
+![alt text](../srcs/hol1-1.png)
+
 2. 화면 하단의 터미널 창에 다음 명령어를 실행하여 게시판 앱을 실행합니다.
 ```cmd
 dotnet run
