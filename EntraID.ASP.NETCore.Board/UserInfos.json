@@ -94,5 +94,83 @@
 		"Password": "1234",
 		"Email": "eunho.kim@lab.castanets.io",
 		"DisplayName": "김은호"
+	},
+	{
+		"UserName": "eunsook.park",
+		"Password": "1234",
+		"Email": "eunsook.parkuser@lab.castanets.io",
+		"DisplayName": "박은숙"
+	},
+	{
+		"UserName": "jaeyong.ryu",
+		"Password": "1234",
+		"Email": "jaeyong.ryuuser@lab.castanets.io",
+		"DisplayName": "류재용"
+	},
+	{
+		"UserName": "sumyeong.ham",
+		"Password": "1234",
+		"Email": "sumyeong.hamuser@lab.castanets.io",
+		"DisplayName": "함수명"
+	},
+	{
+		"UserName": "wonbo.shim",
+		"Password": "1234",
+		"Email": "wonbo.shimuser@lab.castanets.io",
+		"DisplayName": "심원보"
+	},
+	{
+		"UserName": "sangjin.yoo",
+		"Password": "1234",
+		"Email": "sangjin.yoouser@lab.castanets.io",
+		"DisplayName": "유상진"
+	},
+	{
+		"UserName": "jinh5.kim",
+		"Password": "1234",
+		"Email": "jinh5.kimuser@lab.castanets.io",
+		"DisplayName": "김진호"
+	},
+	{
+		"UserName": "jaeho.shin",
+		"Password": "1234",
+		"Email": "jaeho.shinuser@lab.castanets.io",
+		"DisplayName": "신재호"
+	},
+	{
+		"UserName": "dwkim227",
+		"Password": "1234",
+		"Email": "dwkim227user@lab.castanets.io",
+		"DisplayName": "김동욱"
+	},
+	{
+		"UserName": "taehyung.lee",
+		"Password": "1234",
+		"Email": "taehyung.leeuser@lab.castanets.io",
+		"DisplayName": "이태형"
+	},
+	{
+		"UserName": "laehyuk.jang",
+		"Password": "1234",
+		"Email": "laehyuk.janguser@lab.castanets.io",
+		"DisplayName": "장래혁"
+	},
+	{
+		"UserName": "junseo.bak",
+		"Password": "1234",
+		"Email": "junseo.bakuser@lab.castanets.io",
+		"DisplayName": "박준서"
+	},
+	{
+		"UserName": "kiholee",
+		"Password": "1234",
+		"Email": "kiholeeuser@lab.castanets.io",
+		"DisplayName": "이기호"
+	},
+	{
+		"UserName": "eunho.kim",
+		"Password": "1234",
+		"Email": "eunho.kimuser@lab.castanets.io",
+		"DisplayName": "김은호"
 	}
 ]
